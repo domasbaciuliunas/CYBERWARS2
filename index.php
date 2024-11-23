@@ -4,8 +4,9 @@
     <title>CyberSecurity Sandpit</title>
     <!-- UPGRADED TO BOOSTRAP 5 FROM BOOSTRAP 4 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="some_custom_lib.js"></script>
     <!-- CSP HEADER TO PREVENT CROSS SITE SCRIPTING -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css; script-src https://code.jquery.com/jquery-3.6.0.min.js; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css; script-src https://code.jquery.com/jquery-3.6.0.min.js 'self'; form-action 'self';">
 </head>
 <!-- ************************************************************************************* BODY -->
 <body>

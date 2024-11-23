@@ -42,25 +42,6 @@ function readCookie(name)
     return null;
 	}
 
-function readCookie(name) 
-	{
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) 
-		{
-        var c = ca[i];
-        while (c.charAt(0) == ' ')
-			{
-			c = c.substring(1, c.length);
-			}
-        if (c.indexOf(nameEQ) == 0)
-			{
-			return c.substring(nameEQ.length, c.length);
-			}
-    	}
-    return null;
-	}
-
 function eraseCookie(name) 
 	{
     createCookie(name, "", -1);
@@ -69,11 +50,14 @@ function eraseCookie(name)
 function areCookiesEnabled() 
 	{
     createCookie("testing", "Hello", 1);
-    if (readCookie("testing") != null) 
+    if (readCookie("testing") !== null) 
 		{
+			alert("Cookies are on");
     	}
 	else
 		{
 		alert("Cookies must be allowed to fully use this site.")	
 		}	
 	}
+
+createCookie('VIP_USER','TRACKED_TRAFFIC',7);

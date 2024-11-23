@@ -1,4 +1,10 @@
 <?php
+session_set_cookie_params ([
+    //SETS $httponly FOR THE PHP SESSION COOKIES
+    'httponly' => true,
+    //SETS $samesite TO PREVENT CROSS SITE SCRIPTING
+    'samesite' => 'Strict'
+ ]);
 // instantiate or retrieve user session
 session_start();
 // Set Non-Persistent database connection

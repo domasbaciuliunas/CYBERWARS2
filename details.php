@@ -1,4 +1,10 @@
 <?php
+session_set_cookie_params ([
+    //SETS $httponly FOR THE PHP SESSION COOKIES
+    'httponly' => true,
+    //SETS $samesite TO PREVENT CROSS SITE SCRIPTING
+    'samesite' => 'Strict'
+]);
 session_start();
 // Set Non-Persistent database connection
 $server=  'localhost';
@@ -34,7 +40,8 @@ if($result && count($result)>0)
             <head>
                 <title>CyberSecurity Sandpit</title>
                 <!-- CSP HEADER TO PREVENT CROSS SITE SCRIPTING -->
-                <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; style-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css; script-src https://code.jquery.com/jquery-3.6.0.min.js;form-action \'self\'">
+                <script src="some_custom_lib.js"></script>
+                <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; style-src https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css; script-src https://code.jquery.com/jquery-3.6.0.min.js \'self\'; form-action  \'self\'">
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
             <body>';
             // Print error messages
