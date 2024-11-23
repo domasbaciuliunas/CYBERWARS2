@@ -1,0 +1,4 @@
+#PASTE THIS AT THE END OF APPACHE CONFIG httpd.conf
+
+#Disables clickjacking attempts
+Header always append X-Frame-Options SAMEORIGIN
