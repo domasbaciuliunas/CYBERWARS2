@@ -1,4 +1,14 @@
 #PASTE THIS AT THE END OF APPACHE CONFIG httpd.conf
 
+#REMOVES HEADER LEAKAGE
+ServerTokens Prod
+
+#RESTRICT CORS REQUESTS
+Header set Access-Control-Allow-Origin "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+Header set Access-Control-Allow-Origin "https://code.jquery.com/jquery-3.6.0.min.js"
+
 #Disables clickjacking attempts
 Header always append X-Frame-Options SAMEORIGIN
+
+#Disables MIME sniffing
+Header always set X-Content-Type-Options nosniff

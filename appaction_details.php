@@ -1,9 +1,11 @@
 <?php
-
+//ADDED EXTRA VALIDATION CHECK TO ENUSRE, THAT $FILES["filetoUpload"] IS ALWAYS DEFINED
+if (isset($_FILES["fileToUpload"]) && !empty($_FILES["fileToUpload"]["name"])) {
 // file upload
 $target_dir = "uploads/";
 $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+}
 //FUNCTION UPLOAD ALLOWS THE FILE TO BE UPLOADED ONLY AFTER VERIFICATION
 function upload($target_file){ 
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {}
@@ -71,6 +73,8 @@ if(!empty($_POST))
         }        
 } else $_SESSION['errors'][] = 'Form was uploaded incorrectly.';
 //Validation of the file upload
+//ADDED EXTRA VALIDATION CHECK TO ENUSRE, THAT $FILES["filetoUpload"] IS ALWAYS DEFINED
+if (isset($_FILES["fileToUpload"]) && !empty($_FILES["fileToUpload"]["name"])) {
 $imageTypes = ['jpg', 'jpeg', 'png',];
 if(!empty($_FILES)){
         if(!empty($_FILES["fileToUpload"]["name"]) && $user['userfilename'] != $target_file) {
@@ -81,6 +85,7 @@ if(!empty($_FILES)){
                 } else $_SESSION['errors'][] = 'Invalid image type. Accepted types are: jpg, jpeg, png.';
         }    
 } else $_SESSION['errors'][] = 'File is too large or invalid.';
+}
 // Redirect back with a list of errors, if data was not valid
 if (isset($_SESSION['errors']) && count($_SESSION['errors']) > 0) {
         header('Location:details.php?userid='.$userid);
